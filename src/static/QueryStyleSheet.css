@@ -1,0 +1,106 @@
+form.django_forms{
+    margin-left: 6em;
+    margin-top: 3em;
+    font-size: 22px;
+    width: 1200px;
+}
+
+h1.queryDescription{
+    font-size:30px;
+}
+h1.inputLabel{
+    font-size: 22px;
+    font-family: adhari;
+}
+table.regionQueryTable{
+    width: 1000px;
+    table-layout: fixed;
+}
+
+input.inputForm{
+    width: 90%;
+    font-size: 18px;
+    font-family: adhari;
+    border-top: none ;
+    border-right: none ;
+    border-bottom: solid #cccccc 1px;
+    border-left: solid #cccccc 1px;
+    height: 2em;
+}
+p.selectionHeader{
+    color: #828181;
+    font-size: 16px;
+}
+
+
+/* BUTTONS */
+
+
+input.query_database {padding:5px 15px; background: #073946;
+    font-size: 16px;
+    font-family: Adhari;
+    font-weight: bold;
+    color: white;
+    border: solid 1px  #033d57;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 2px;
+    box-shadow: 0 3px  #033d57;}
+
+.query_database:hover {background-color: #0d6980}
+
+.query_database:active {
+  background-color: #033d57;
+  box-shadow: 0 5px #000000;
+  transform: translateY(3px);
+}
+
+button.ajax_search_list {padding: 4px 10px; background: #ffffff;
+    font-size: 16px;
+    font-family: Adhari;
+    font-weight: bold;
+    border: solid 1px #e6e6e6;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 2px;
+    box-shadow: 0 2px  #999999;}
+
+button.ajax_search_list:hover {background-color: #e6e6e6}
+
+button.ajax_search_list:active {
+  background-color: #b3b3b3;
+  box-shadow: 0 2px #666;
+  transform: translateY(1px);
+}
+
+button.NoneButton {padding:5px 15px; background: white;
+    font-size: 16px;
+    font-family: Adhari;
+    font-weight: bold;
+    border: solid 1px  #060d13;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 4px;
+    box-shadow: 0 3px  #060d13;}
+
+
+input.chosenButtons {padding: 4px 10px; background: #ffffff;
+    font-size: 16px;
+    font-family: Adhari;
+    font-weight: bold;
+    border: solid 1px #333333;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 2px;
+    box-shadow: 0 2px  #999999;}
+
+input.chosenButtons:hover {background-color: #e6e6e6}
+
+input.chosenButtons:active {
+  background-color: #b3b3b3;
+  box-shadow: 0 2px #666;
+  transform: translateY(1px);
+}
+
+
+
