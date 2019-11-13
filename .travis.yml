@@ -8,4 +8,4 @@ install:
  - pip install djangorestframework
 
 script: 
- - python mysite/manage.py runserver &
+ - python src/manage.py runserver &
