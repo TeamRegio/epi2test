@@ -1,0 +1,92 @@
+{% include 'navbar.html' %}
+{% load static %}
+
+<style>
+
+select{
+    font-size: 18px;
+    font-family: adhari;
+    height: 24px;
+}
+
+</style>
+
+<!-- INCLUDE STYLES AND FUNCTIONALITY ---------------------------------------------------------------------------------- -->
+
+<head>
+    <script src="{% static 'collected_JS_functions.js' %}"></script>
+    <script src="{% static 'ajax_geneSymbol.js' %}"></script>
+    <script src="{% static 'ajax_cellTypes.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/QueryStyleSheet.css' %}">
+
+</head>
+
+
+<!-- INITIATE INPUT FORM ---------------------------------------------------------------------------------- -->
+
+<form id='geneID_forms' class='django_forms' method="POST" action="/geneQuery_search/" autocomplete="off">
+{% csrf_token %}
+
+    <h1 class="queryDescription"><u>Look up genes in the database:</u></h1>
+    <br>
+<!-- GET GENE FORMAT ---------------------------------------------------------------------------------- -->
+
+<h1 class="inputLabel">Please select which gene nomenclature you want to use: </h1>
+    <select name="gene_format" id="gene_format" onchange="switchGeneIDField()" >
+    <option selected='selected' value="id_format">ensemble ID</option>
+    <option value="symbol_format">gene Symbol</option>
+</select>
+<br>
+<br>
+<br>
+<!-- GET GENE ID ---------------------------------------------------------------------------------- -->
+
+<div>
+    <table class="geneQueryTable">
+        <tr>
+            <td height="100px" width="600px">
+            <h1 class="inputLabel" id="geneHeader"> Ensemble gene ID:</h1>
+            <input width="90%" class='inputForm' id="geneID_numeric" name='geneID_numeric' type="text"  placeholder="E.g. ENSG00000139874, separate multiple IDs by comma" />
+            {% csrf_token %}
+
+            <input class='inputForm' id="geneID_symbolic" name='geneID_symbolic' type="hidden"  placeholder="Type and select buttons on the right, deselect by clicking below" />
+                <p  style="visibility:hidden;" class="selectionHeader" id="container_geneSymbolHeader"> Currently selected:</p>
+            <div class ='selectedButtons'  id="container_geneSymbol"> </div>
+            </td>
+
+            <td width="900px" height="100px" >
+                <div class="ajax_search_list" id="search-results-gene"></div>
+            </td>
+        </tr>
+
+<!-- CELL TYPE SEARCH WITH BUTTONS ---------------------------------------------------------------------------------- -->
+        <tr>
+            <td height="100px" width="600px">
+                <div class="toggle">
+                <h1 class='inputLabel' id="fieldname">Filter for cell types:</h1></div>
+                {% csrf_token %}
+
+                <input class='inputForm' type="text" id="search" name="search" placeholder="Leave empty to look up for all cell types" />
+                <p class="selectionHeader" id="container_cellTypesHeader"> Currently selected:</p>
+                <div class ='selectedButtons' id="container_cellTypes"> </div>
+            </td>
+
+            <td class="searchButtons">
+                <div class="ajax_search_list" id="search-results"></div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+<!-- SUBMIT FORM ---------------------------------------------------------------------------------- -->
+<input type="hidden" id="geneSymbol" name="geneSymbol">
+<input type="hidden" id="cellTypes" name="cellTypes" />
+<br>
+<br>
+<input onclick='ButtonsToInput("container_geneSymbol", "geneSymbol"); ButtonsToInput("container_cellTypes", "cellTypes")' type="submit" name="Save" value="Query Database" class="query_database" />
+
+</form>
+
+
+
